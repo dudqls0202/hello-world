@@ -1,0 +1,40 @@
+library(readxl)
+exdata1<-read_excel("C:/Users/dudql/Documents/Rstudy/practice2.xlsx")
+exdata1
+View(exdata1)
+str(exdata1)
+dim(exdata1)
+ls(exdata1)
+install.packages("dplyr")
+library("dplyr")
+exdata1<-rename(exdata1,Y17_AMT=AMT17,Y16_AMT=AMT16)
+View(exdata1)
+exdata1$AMT<-exdata1$Y17_AMT+exdata1$Y16_AMT
+exdata1$CNT<-exdata1$Y17_CNT+exdata1$Y16_CNT
+View(exdata1)
+exdata1$AVG_AMT<-exdata1$AMT/exdata1$CNT
+View(exdata1)
+exdata1$AGE50_YN<-ifelse(exdata1$AGE>=50,"Y","N")
+View(exdata1)
+exdata1$AGE_GR10<-ifelse(exdata1$AGE>=50,"A1.50++",
+                         ifelse(exdata1$AGE>=40,"A2.4049",
+                                ifelse(exdata1$AGE>=30,"A3.3039",
+                                       ifelse(exdata1$AGE>=20,"A4.2029",
+                                              "A5.0019"))))
+View(exdata1)
+str(exdata1)
+dim(exdata1)
+ls(exdata1)
+library(dplyr)
+exdata1%>%select(ID)
+exdata1%>%select(ID,AREA,Y17_CNT)
+View(exdata1%>%select(ID))
+exdata1%>%select(-AREA)
+exdata1%>%select(-AREA,-Y17_CNT)
+exdata1%>%filter(AREA=='Seoul')
+exdata1%>%filter(AREA=='Seoul'&Y17_CNT>=10)
+exdata1%>%arrange(AGE)
+exdata1%>%arrange(desc(AGE))
+exdata1%>%arrange(AGE,desc(Y17_AMT))
+exdata1%>%summarise(T0T_Y17_AMT=sum(Y17_AMT))
+exdata1%>%group_by(AREA)%>%summarise(SUM_Y17_AMT=sum(Y17_AMT))
