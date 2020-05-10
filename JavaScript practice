@@ -1,0 +1,22 @@
+<!DOCTYPE html/>
+<html>
+  <head>
+    <title>Something</title>
+    <Link rel="stylesheet"
+    href="index.css" />
+  </head>
+  <body>
+    <h1>This works!</h1>
+    <script src="index.js"></script>
+  </body>
+</html>
+
+body{
+  background-color:peru;
+}
+
+h1 {
+  color:white;
+}
+
+console.log("Im working. IM JS. IM beautiful. IM worth it");
