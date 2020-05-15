@@ -48,3 +48,45 @@ const divide = calculator.divide(5, 5)
 const powers = calculator.powers(5, 3)
 console.log(plus, minus, multiply, divide, powers)
 // calculator(plus, bouble or divide)
+
+//more practice 5.11.
+const title = document.querySelector("#title");
+//도큐먼트에서 첫 번재 노드를 선언;
+title.innerHTML = "Hi from JS";
+title.style.color = "black"
+document.title = "I own you now!"
+
+function handleclick(){
+    title.style.color = "red";
+}
+
+function handlerezie(EventTarget){
+    console.log(EventTarget);
+};
+
+title.addEventListener("click", handleclick);
+title.addEventListener("resize", handlerezie);
+
+if("10" === 10){
+    console.log("hi");
+} else if("10" === "5") {
+    console.log("lalala");
+} else { 
+    console.log("difficult !")
+}
+
+if(1 > 5 || "nicolas" === "nicolas"){
+    console.log("yes");
+} else {
+    console.log("no");
+}
+
+const age = prompt("how old are you?")
+console.log(age);
+//올드한 명령어, 거의 사용하지 않으나 작동은 됨;
+
+if(age > 18){
+    console.log("you can drink");
+} else {
+    console.log("you cant");
+}
