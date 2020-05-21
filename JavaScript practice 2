@@ -1,0 +1,59 @@
+//HTML FORM
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Something</title>
+        <link rel="stylesheet"
+        href="index1.css" />
+    </head>
+    <body>
+        <h1 id="title" class="btn">This works!</h1>
+        <script src="index1.js"></script>
+    </body>
+</html>
+
+//CSS FORM
+
+body{
+    background-color: #ecf0f1;
+  }
+  
+  .btn{
+    cursor: pointer;
+}
+
+  h1 {
+    color:#34495e;
+    transition: color 0.5s ease-in-out;
+  }
+
+  .clicked{
+    color: #7f8c8d;
+  }
+  
+  //JS FORM
+  
+  const title = document.querySelector("#title");
+
+const CLICKED_CLASS = "clicked";
+
+
+function handleClick(){
+    const hasClass = title.classList.contains(CLICKED_CLASS);
+    if(hasClass) {
+        title.classList.remove(CLICKED_CLASS);
+    } else { 
+        title.classList.add(CLICKED_CLASS);
+    }
+}
+// 위와 아래는 동일하다.
+function handleClick() {
+    title.classList.toggle(CLICKED_CLASS); 
+}
+//class name과 current class의 차이 이해하기
+function init() {
+    title.addEventListener("click", handleClick);
+}
+init();
+  
